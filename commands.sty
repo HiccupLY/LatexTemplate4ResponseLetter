@@ -1,0 +1,73 @@
+% An article class for author response to reviewer comment.
+% Copyright (C) 2022 Yang Liu
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{commands}[2022/01/03 Latex For Review Letter LaTeX package]
+
+\RequirePackage{inputenc}
+\RequirePackage{lipsum} % to generate some filler text
+\RequirePackage{fullpage}
+
+
+% import Eq and Section references from the main manuscript where needed
+% \usepackage{xr}
+% \externaldocument{manuscript}
+
+% package needed for optional arguments
+\RequirePackage{xifthen}
+% define counters for reviewers and their points
+\newcounter{reviewer}
+\setcounter{reviewer}{0}
+\newcounter{point}[reviewer]
+\setcounter{point}{0}
+
+% This refines the format of how the reviewer/point reference will appear.
+\renewcommand{\thepoint}{P\,\thereviewer.\arabic{point}} 
+
+
+% command declarations for reviewer points and our responses
+\newcommand{\reviewersection}{\refstepcounter{reviewer} \bigskip \hrule
+                  \section*{Reviewer \thereviewer}}
+
+\newenvironment{totalcomment}
+   {\noindent {\textbf{Comment} }:\  \em}
+   {\par }
+
+\newenvironment{generalresponse}
+   {\medskip \noindent \begin{sf}\textbf{General Response}:\  }
+   {\medskip \end{sf}}
+
+
+\newenvironment{point}
+   % {\refstepcounter{point} \bigskip \noindent {\textbf{Reviewer~Point~\thepoint} } ---\ \em}
+   {\refstepcounter{point} \bigskip \noindent {\textbf{Reviewer~Point~\thepoint} }:\  \em}
+   {\par }
+
+\newcommand{\shortpoint}[1]{\refstepcounter{point}  \bigskip \noindent 
+	{\textbf{Reviewer~Point~\thepoint} } ---~#1\par }
+
+\newenvironment{reply}
+   {\medskip \noindent \begin{sf}\textbf{Reply}:\  }
+   {\medskip \end{sf}}
+
+\newcommand{\shortreply}[2][]{\medskip \noindent \begin{sf}\textbf{Reply}:\  #2
+	\ifthenelse{\equal{#1}{}}{}{ \hfill \footnotesize (#1)}%
+	\medskip \end{sf}}
+
+\providecommand {\textupdate}[1]{\textcolor{blue}{{#1}}}
+\providecommand {\textdel}[1]{{\protect\color{red}\sout{#1}}} 

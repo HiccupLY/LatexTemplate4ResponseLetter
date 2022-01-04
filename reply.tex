@@ -1,0 +1,178 @@
+% An article class for author response to reviewer comment.
+% Copyright (C) 2017 Martin Schroen
+% Modifications Copyright (C) 2022 Alex Liu
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+%in the commands, several function are listed as follows:
+%\reviewersection : define the new reviewer environment with index added.
+%\totalcomment : define the initial comment.
+%\generalresponse : define the reply of the initial comment.(option)
+%\point : define the new argue point of the specific reviewer(\reviewersection).
+%\reply : define the reply part.
+
+%\textupdate : define the updated text
+%\textdel : define the deleted text
+
+
+\documentclass{ar2rc}
+% \usepackage[UTF8]{ctex}
+\usepackage{commands}
+\usepackage[english]{babel}
+\usepackage{cite}
+\usepackage{enumerate}
+\usepackage{xspace}
+
+
+\providecommand {\ly}[1]{\textcolor{orange}{{#1}}}
+\providecommand {\todonote}[1]{{\color{ForestGreen}{[TODO:{#1}]}\xspace}}
+
+
+\title{Your Paper}
+\author{Your Name}
+\journal{the journal name}
+% \doi{12345}
+
+\begin{document}
+
+\maketitle
+
+~\newline
+
+Dear Reviewers and Editors,
+
+Note that the comments are \textit{\textbf{italic}} and the responses are \textbf{regular}. 
+% In the manuscript with marked changes, the colour of revised parts is \textupdate{\textbf{blue}}.
+In the manuscript with marked changes, the colour of revised parts is \textupdate{\textbf{blue}} and the colour of deleted parts is \textdel{\textbf{red}}.
+
+
+
+Sincerely yours,
+
+Name,Address,Email
+
+
+% Dear Editor,
+% We have uploaded three files: % 这次上传的三个文件包括
+% \begin{enumerate}[A]
+%     \item our point-by-point response to the questions (below) (response to editor);
+%     \item the updated PDF;
+%     \item the updated latex archive.
+% \end{enumerate}
+% Best regards,
+
+% Yang Liu, Zheng Zheng, Fangyun Qinb, Xiaoyi Zhang, Haonan Yao
+\newpage
+
+
+\section{Main Revisions in the New Submission}
+% General intro text goes here
+
+\lipsum[2-3]
+
+
+\newpage
+
+
+
+\section{Responses to the Reviewers’ Comments}
+% General intro text goes here
+We thank the reviewers for their critical assessment of our work. 
+In the following we address their concerns point by point. 
+
+% Let's start point-by-point with Reviewer 1
+\reviewersection
+\label{reviewer.1}
+
+\begin{totalcomment}
+    \lipsum[1-1]
+
+\end{totalcomment}
+
+
+
+% Point one description 
+\begin{point} \label{pt:1.1}
+    \lipsum[1-1]
+
+\end{point}
+
+% Our reply
+\begin{reply}
+    \lipsum[1-1]
+\end{reply}
+
+\begin{point} \label{pt:1.2}
+    \lipsum[1-2]
+\end{point}
+
+\begin{reply}
+	\ly{\lipsum[1-1]}
+
+    \todonote{not fixed}
+\end{reply}
+
+
+
+% Begin a new reviewer section
+\reviewersection
+
+
+
+\begin{point}
+    \lipsum[1-1]
+
+\end{point}
+
+
+\begin{reply}
+    To address this phenomenon, we have added the relevant description as follows.
+
+    \begin{quote}
+        \textupdate{
+            This is a demo.        
+            This is a demo.
+            This is a demo.
+            This is a demo.
+            This is a demo.
+            This is a demo.
+            This is a demo.
+        }
+        \textdel{
+        This is a demo.        
+        This is a demo.
+        This is a demo.
+        This is a demo.
+        This is a demo.
+        This is a demo.
+        This is a demo.
+        }
+        
+        The cat in the box is \DIFdelbegin \DIFdel{dead}\DIFdelend \DIFaddbegin \DIFadd{alive}\DIFaddend .
+        \begin{align}
+        E &= mc^2 \\
+        m\cdot \DIFdelbegin \DIFdel{a=F}\DIFdelend \DIFaddbegin \DIFadd{v=p}\DIFaddend .
+        \end{align}
+        OK, a citation\cite{BADUE2021113816,chen2018unmanned}.
+    \end{quote}
+\end{reply}
+
+
+
+\bibliographystyle{unsrt}
+\bibliography{mybibfile}
+
+\end{document}
