@@ -6,16 +6,17 @@ Based on @mschroen's [review_response_letter](https://github.com/mschroen/review
 ## Example
 Use the example `reply.tex`. Please ensure the class file `ar2rc.cls` and the style file `commands.sty` are in the same directory.
 
-<img alt="Screenshot of the output PDF of a Author Response Letter to Review Comments" src="https://cloud.githubusercontent.com/assets/7942719/26349939/c9889c00-3fb1-11e7-91c6-908012e2797e.png" style="max-width: 100%" />
+<img alt="Screenshot of the output PDF of a Author Response Letter to Review Comments" src="./img/1.png" style="max-width: 100%" />
 
 In the commands, several function are listed as follows:
-\reviewersection : define the new reviewer environment with index added.
-\totalcomment : define the initial comment.(optional)
-\generalresponse : define the reply of the initial comment.(optional)
-\point : define the new argue point of the specific reviewer(\reviewersection).
-\reply : define the reply part.
-\textupdate : define the updated text.
-\textdel : define the deleted text.
+
+- \reviewersection : define the new reviewer environment with index added.
+- \totalcomment : define the initial comment.(optional)
+- \generalresponse : define the reply of the initial comment.(optional)
+- \point : define the new argue point of the specific reviewer(\reviewersection).
+- \reply : define the reply part.
+- \textupdate : define the updated text.
+- \textdel : define the deleted text.
 
 
 ```
