@@ -101,15 +101,34 @@ innerleftmargin=0.6em,innerrightmargin=0.6em]{quote}
 \let\@journal\@empty
 \let\@doi\@empty
 \newcommand{\journal}[1]{\gdef\@journal{#1}}
-\newcommand{\doi}[1]{\gdef\@doi{#1}}
+\newcommand{\lognum}[1]{\gdef\@lognum{#1}}
+
 
 % Make title and legend
 \renewcommand\maketitle{
-{\Large\bf \lettertitle}\\[1em]
-{\LARGE \@title}\\[1em]
-{\@author}\\
-{\it \@journal }\\
-% {\it \@journal, }\texttt{\@doi}\\
-\hrule
-% \hfill {\bfseries RC:} \textbf{\textit{Reviewers' Comment}},\(\quad\) AR: Authors' Response, \(\quad\square\) Manuscript Text
+  \begin{center}
+    % 添加一个美观的装饰线
+        \vspace{0.3cm}
+    \rule{\textwidth}{1pt}
+
+    {\Large\bf \lettertitle}\\[0.8em]
+    {\Large\bfseries \@title}\\[0.8em]
+    
+    \vspace{0.3cm}
+    % 作者区域
+    {\large\@author}\\[0.3em]
+    
+    % 机构和期刊信息
+    {\large \@journal }\\[0.3em]
+    
+    % 如果有Log Number，显示它
+    \ifx\@lognum\@empty\else
+      {\large Manuscript ID: \texttt{\@lognum}}\\[0.3em]
+    \fi
+    
+    % 添加日期
+    % {\large \today}
+    \rule{\textwidth}{1pt}
+  \end{center}
+  % 移除了开场白部分，由你在正文中添加
 }
