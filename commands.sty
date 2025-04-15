@@ -37,11 +37,11 @@
 \setcounter{comment}{0}
 
 % This refines the format of how the reviewer/point reference will appear.
-\renewcommand{\thepoint}{\textbf{Comment}\,\thereviewer.\arabic{comment}} 
+\renewcommand{\thecomment}{\textbf{Comment}\,\thereviewer.\arabic{comment}} 
 
 
 % command declarations for reviewer points and our responses
-\newcommand{\reviewersection}{\refstepcounter{reviewer} \bigskip \hrule
+\newcommand{\reviewersection}{\refstepcounter{reviewer} \bigskip
                   \section*{Reviewer \thereviewer}}
 
 \newenvironment{generalcomment}
@@ -55,7 +55,7 @@
 
 \newenvironment{comment}
    % {\refstepcounter{point} \bigskip \noindent {\textbf{Reviewer~Point~\thepoint} } ---\ \em}
-   {\refstepcounter{comment} \bigskip \noindent {\textbf{Reviewer~\thepoint} }:\  \em}
+   {\refstepcounter{comment} \bigskip \noindent {\textbf{Reviewer~\thecomment} }:\  \em}
    {\par }
 
 % \newcommand{\shortpoint}[1]{\refstepcounter{point}  \bigskip \noindent 
