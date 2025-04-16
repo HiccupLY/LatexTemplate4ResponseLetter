@@ -33,41 +33,41 @@
 % define counters for reviewers and their points
 \newcounter{reviewer}
 \setcounter{reviewer}{0}
-\newcounter{point}[reviewer]
-\setcounter{point}{0}
+\newcounter{comment}[reviewer]
+\setcounter{comment}{0}
 
 % This refines the format of how the reviewer/point reference will appear.
-\renewcommand{\thepoint}{P\,\thereviewer.\arabic{point}} 
+\renewcommand{\thecomment}{\textbf{Comment}\,\thereviewer.\arabic{comment}} 
 
 
 % command declarations for reviewer points and our responses
-\newcommand{\reviewersection}{\refstepcounter{reviewer} \bigskip \hrule
+\newcommand{\reviewersection}{\refstepcounter{reviewer} \bigskip
                   \section*{Reviewer \thereviewer}}
 
-\newenvironment{totalcomment}
-   {\noindent {\textbf{Comment} }:\  \em}
+\newenvironment{generalcomment}
+   {\noindent {\textbf{General Comment} }:\  \em}
    {\par }
 
 \newenvironment{generalresponse}
-   {\medskip \noindent \begin{sf}\textbf{General Response}:\  }
-   {\medskip \end{sf}}
+   {\medskip \noindent\textbf{General Response}:\  }
+   {\medskip}
 
 
-\newenvironment{point}
+\newenvironment{comment}
    % {\refstepcounter{point} \bigskip \noindent {\textbf{Reviewer~Point~\thepoint} } ---\ \em}
-   {\refstepcounter{point} \bigskip \noindent {\textbf{Reviewer~Point~\thepoint} }:\  \em}
+   {\refstepcounter{comment} \bigskip \noindent {\textbf{Reviewer~\thecomment} }:\  \em}
    {\par }
 
-\newcommand{\shortpoint}[1]{\refstepcounter{point}  \bigskip \noindent 
-	{\textbf{Reviewer~Point~\thepoint} } ---~#1\par }
+% \newcommand{\shortpoint}[1]{\refstepcounter{point}  \bigskip \noindent 
+% 	{\textbf{Reviewer~Point~\thepoint} } ---~#1\par }
 
-\newenvironment{reply}
-   {\medskip \noindent \begin{sf}\textbf{Reply}:\  }
-   {\medskip \end{sf}}
+\newenvironment{response}
+   {\medskip \noindent \textbf{Response}:\  }
+   {\medskip }
 
-\newcommand{\shortreply}[2][]{\medskip \noindent \begin{sf}\textbf{Reply}:\  #2
-	\ifthenelse{\equal{#1}{}}{}{ \hfill \footnotesize (#1)}%
-	\medskip \end{sf}}
+% \newcommand{\shortreply}[2][]{\medskip \noindent\textbf{Reply}:\  #2
+% 	\ifthenelse{\equal{#1}{}}{}{ \hfill \footnotesize (#1)}%
+% 	\medskip }
 
 \providecommand {\textupdate}[1]{\textcolor{blue}{{#1}}}
 \providecommand {\textdel}[1]{{\protect\color{red}\sout{#1}}} 

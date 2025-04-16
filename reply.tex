@@ -21,7 +21,7 @@
 %\reviewersection : define the new reviewer environment with index added.
 %\totalcomment : define the initial comment.
 %\generalresponse : define the reply of the initial comment.(option)
-%\point : define the new argue point of the specific reviewer(\reviewersection).
+%\comment : define the new argue comment of the specific reviewer(\reviewersection).
 %\reply : define the reply part.
 
 %\textupdate : define the updated text
@@ -44,7 +44,7 @@
 \title{Your Paper}
 \author{Your Name}
 \journal{the journal name}
-% \doi{12345}
+\lognum{12345}
 
 \begin{document}
 
@@ -68,7 +68,7 @@ Name,Address,Email
 % Dear Editor,
 % We have uploaded three files: % 这次上传的三个文件包括
 % \begin{enumerate}[A]
-%     \item our point-by-point response to the questions (below) (response to editor);
+%     \item our comment-by-comment response to the questions (below) (response to editor);
 %     \item the updated PDF;
 %     \item the updated latex archive.
 % \end{enumerate}
@@ -78,7 +78,7 @@ Name,Address,Email
 \newpage
 
 
-\section{Main Revisions in the New Submission}
+\section*{Main Revisions in the New Submission}
 % General intro text goes here
 
 \lipsum[2-3]
@@ -88,42 +88,34 @@ Name,Address,Email
 
 
 
-\section{Responses to the Reviewers’ Comments}
-% General intro text goes here
-We thank the reviewers for their critical assessment of our work. 
-In the following we address their concerns point by point. 
+\section*{Responses to the Reviewers’ Comments}
 
-% Let's start point-by-point with Reviewer 1
 \reviewersection
 \label{reviewer.1}
 
-\begin{totalcomment}
+
+
+
+% comment one description 
+\begin{comment} \label{pt:1.1}
     \lipsum[1-1]
 
-\end{totalcomment}
+\end{comment}
 
-
-
-% Point one description 
-\begin{point} \label{pt:1.1}
+% Our response
+\begin{response}
     \lipsum[1-1]
+\end{response}
 
-\end{point}
-
-% Our reply
-\begin{reply}
-    \lipsum[1-1]
-\end{reply}
-
-\begin{point} \label{pt:1.2}
+\begin{comment} \label{pt:1.2}
     \lipsum[1-2]
-\end{point}
+\end{comment}
 
-\begin{reply}
+\begin{response}
 	\ly{\lipsum[1-1]}
 
     \todonote{not fixed}
-\end{reply}
+\end{response}
 
 
 
@@ -132,13 +124,13 @@ In the following we address their concerns point by point.
 
 
 
-\begin{point}
+\begin{comment}
     \lipsum[1-1]
 
-\end{point}
+\end{comment}
 
 
-\begin{reply}
+\begin{response}
     To address this phenomenon, we have added the relevant description as follows.
 
     \begin{quote}
@@ -168,7 +160,7 @@ In the following we address their concerns point by point.
         \end{align}
         OK, a citation\cite{BADUE2021113816,chen2018unmanned}.
     \end{quote}
-\end{reply}
+\end{response}
 
 
 
